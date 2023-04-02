@@ -48,3 +48,44 @@ cbind(m , 5:7) #закачаме колона със ст-ти от 5 до 7
 
 
 
+#data frames
+x = c(5, 8, 11, 3, 2, 9, 4);
+y = c("Y", "Y", "N", "Y", "N", "N", "Y");
+
+df = data.frame(x,y);
+
+
+str(df); # returns the str of the dataframe
+
+df$x; # returns x vector of df
+df$x[4]; # returns the 4th element of x which is 3
+
+
+df[ ,2] # return the values of second column [1] "Y", "Y", "N", "Y", "N", "N", "Y"
+
+df[2,] # returns the second row with both values of x and y   
+#  x y
+#2 8 Y
+
+df$z = seq(from=1, to=14, by=2) # adds another column to the data frame 
+
+df[ 3, c("x","z") ] # returns the third row of df
+#  x z
+#3 11 5
+
+
+df[ c(5,7), c(2,3) ]
+#  y z
+#  5 N 9
+#  7 Y 13
+
+
+df$x[ df$z <= 5 ] # returns the values of x column which meet the condition about z
+
+
+
+df[ df$z <= 5, c("x","z") ]
+#   x z
+#1  5 1
+#2  8 3
+#3 11 5
